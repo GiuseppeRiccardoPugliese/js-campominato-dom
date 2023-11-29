@@ -20,6 +20,8 @@ btnPlay.addEventListener('click',
     function () {
         //Reimposto il mio gameover con value false cosi' che ricliccando sul btn play possa ricominciare il gioco
         gameOver = false;
+        //Resetto il valore del punteggio dell'utente
+        let punteggio = 0;
 
         let selectDifficulty = parseInt(document.getElementById('difficulty').value);
 
