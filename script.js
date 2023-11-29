@@ -13,22 +13,16 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // 3 Al click di una bomba la partita termina
 // 4 Al termine della partita comunichiamo il punteggio (cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba)
 
-/*************************************************
-    GLOBAL VARIABLES
- *************************************************/
+
 //Selezione del contenitore all'interno del mio index
 const gridElement = document.getElementById("grid");
 //Richiamo il mio array vuoto prima espresso nella funzione e gli dico cose nello specifico
-//const newArrNum = genArrayRandomNum(1, 16, 100);
-// console.log(newArrNum);
-
-
-
-
-
+const newArrNum = genArrayRandomNum(1, 100, 16);
+console.log(newArrNum);
 
 //Si showa la griglia al click
 const btnPlay = document.getElementById('playbtn');
+
 btnPlay.addEventListener('click',
 
     function () {
@@ -44,11 +38,21 @@ for (let i = 1; i <= 100; i++) {
     gridElement.append(newElement);
     newElement.append(i);
 
+    //Inserisco il numero all'interno della cella
+    // let numeroCellaIesimo = newArrNum[i];
+    // newElement.append(numeroCellaIesimo);
+
+
     //funzione per colorare la cella all'interno della griglia
     newElement.addEventListener('click',
         function () {
+
+            if (newArrNum === genArrayRandomNum) {
+                newElement.classList.add('clicked-bomb');
+            } else {
+                newElement.classList.add('clicked');
+            }
             console.log("Hai cliccato una cella", i);
-            newElement.classList.add('clicked');
         }
     );
 }
