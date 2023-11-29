@@ -11,12 +11,15 @@ const btnPlay = document.getElementById('playbtn');
 const gridElement = document.getElementById("grid");
 //variabile per far fermare il gioco quando si perde
 let gameOver = false;
-
+//variabile per il punteggio
+let punteggio = 0;
 
 //Si showa al click
 btnPlay.addEventListener('click',
 
     function () {
+        //Reimposto il mio gameover con value false cosi' che ricliccando sul btn play possa ricominciare il gioco
+        gameOver = false;
 
         let selectDifficulty = parseInt(document.getElementById('difficulty').value);
 
@@ -26,7 +29,6 @@ btnPlay.addEventListener('click',
         //Stringa vuota per non far generare la griglia piu' di una volta
         gridElement.innerHTML = "";
 
-        let punteggio = 0;
         //Ciclo for per avere le mie celle modalita' easy
         for (let i = 1; i <= maxLunghezza(selectDifficulty); i++) {
 
