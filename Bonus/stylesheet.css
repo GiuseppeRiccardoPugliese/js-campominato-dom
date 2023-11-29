@@ -82,7 +82,9 @@ div#grid {
     height: 600px;
 }
 
-div#grid .square {
+div#grid .square,
+.square-medium,
+.square-hard {
     display: inline-flex;
     width: calc(100% / 10);
     height: calc(100% / 10);
@@ -101,21 +103,11 @@ div#grid .square-hard.clicked {
 .square-medium {
     width: calc(100% / 9);
     height: calc(100% / 9);
-    display: inline-flex;
-    cursor: crosshair;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
 }
 
 .square-hard {
     width: calc(100% / 7);
     height: calc(100% / 7);
-    display: inline-flex;
-    cursor: crosshair;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
 }
 
 /*************************************************
