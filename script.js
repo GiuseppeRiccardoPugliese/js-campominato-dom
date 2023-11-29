@@ -31,6 +31,8 @@ btnPlay.addEventListener('click',
     }
 );
 
+//Variabile per il punteggio dell'utente
+let punteggio = 0;
 //Ciclo for per avere le mie celle
 for (let i = 1; i <= 100; i++) {
 
@@ -49,9 +51,11 @@ for (let i = 1; i <= 100; i++) {
 
             if (arrBomb.includes(i)) {
                 newElement.classList.add('clicked-bomb');
-                alert('HAI PERSOOO :(');
+                alert(`HAI PERSOOO  :(  Il tuo punteggio e' :  ${punteggio}`);
+                console.log("Punteggio dell'utente :", punteggio);
             } else {
                 newElement.classList.add('clicked');
+                punteggio++;
             }
             console.log("Hai cliccato una cella", i);
         }
