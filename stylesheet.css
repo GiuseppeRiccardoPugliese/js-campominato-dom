@@ -1,0 +1,114 @@
+/*************************************************
+    STILI GENERALI
+ *************************************************/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*************************************************
+    UTILITIES
+ *************************************************/
+.pad-y20 {
+    padding: 0 20px;
+}
+
+.pad-y15 {
+    padding: 0 15px;
+}
+
+/*************************************************
+    COLORS
+ *************************************************/
+.color-purple {
+    color: #ae92c7;
+}
+
+.bgcolor_acqua {
+    background-color: #7fffd4;
+}
+
+/*************************************************
+    STILI HEADER
+ *************************************************/
+header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header img {
+    width: 60px;
+}
+
+.left_side {
+    display: flex;
+    align-items: center;
+}
+
+.right_side {
+    display: flex;
+    align-items: center;
+}
+
+/*************************************************
+    STILI MAIN
+ *************************************************/
+main {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: center;
+}
+
+div#grid {
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+}
+
+div#grid .square {
+    display: inline-flex;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    cursor: crosshair;
+    align-items: center;
+    justify-content: center;
+}
+
+div#grid,
+div#grid .square {
+    border: 2px solid black;
+}
+
+div#grid .square.clicked {
+    background-color: aqua;
+}
+
+/*************************************************
+    STILI FOOTER
+ *************************************************/
+footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+
+/*************************************************
+    DISPLAY SETUP
+ *************************************************/
+.hidden {
+    display: none;
+}
+
+/* .block {
+    display: block;
+} */

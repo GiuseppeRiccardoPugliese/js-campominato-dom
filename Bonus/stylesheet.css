@@ -1,0 +1,128 @@
+/*************************************************
+    STILI GENERALI
+ *************************************************/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*************************************************
+    UTILITIES
+ *************************************************/
+.pad-x20 {
+    padding: 0 20px;
+}
+
+.pad-x15 {
+    padding: 0 15px;
+}
+
+.pad-right40 {
+    padding-right: 40px;
+}
+
+.marg-x10 {
+    margin: 0 10px;
+}
+
+/*************************************************
+    COLORS
+ *************************************************/
+.color-purple {
+    color: #ae92c7;
+}
+
+.bgcolor_acqua {
+    background-color: #7fffd4;
+}
+
+/*************************************************
+    STILI HEADER
+ *************************************************/
+header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+header img {
+    width: 60px;
+}
+
+.left_side {
+    display: flex;
+    align-items: center;
+}
+
+.right_side {
+    display: flex;
+    align-items: center;
+}
+
+/*************************************************
+    STILI MAIN
+ *************************************************/
+main {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: center;
+}
+
+div#grid {
+    margin: 0 auto;
+    width: 600px;
+    height: 600px;
+}
+
+div#grid .square {
+    display: inline-flex;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    cursor: crosshair;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+div#grid .square.clicked,
+div#grid .square-medium.clicked,
+div#grid .square-hard.clicked {
+    background-color: aqua;
+}
+
+.square-medium {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    display: inline-flex;
+    cursor: crosshair;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.square-hard {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    display: inline-flex;
+    cursor: crosshair;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+/*************************************************
+    STILI FOOTER
+ *************************************************/
+footer {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
