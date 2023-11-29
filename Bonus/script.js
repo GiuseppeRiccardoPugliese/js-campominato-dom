@@ -46,7 +46,12 @@ btnPlay.addEventListener('click',
                     if (arrBomb.includes(i)) {
                         newElement.classList.add('clicked-bomb');
                         alert(`HAI PERSOOO  :(  Il tuo punteggio e' :  ${punteggio}`);
+
                         gameOver = true; //forzo la mia variabile del gameOver a true quando sono in questa condizione
+
+                        // Rivelare tutte le bombe
+                        revealAllBombs(arrBomb);
+
                         console.log("Punteggio dell'utente :", punteggio);
                     } else {
                         newElement.classList.add('clicked');
@@ -100,6 +105,7 @@ function classDifficulty(selectDifficulty, classname) {
     return classname;
 };
 
+
 //Definisco la funzione che crea un array, richiamando anche quella di due valori randomici (min, max)
 function genArrayRandomNum(minNum, maxNum, lengthArr) {
 
@@ -127,4 +133,12 @@ function genArrayRandomNum(minNum, maxNum, lengthArr) {
 //(in questo caso funzione utile da richiamare per generare il mio array con min max randomici)
 function genRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Nuova funzione per rivelare tutte le bombe alla fine del gioco
+function revealAllBombs(bombArray) {
+    bombArray.forEach(bombIndex => {
+        const bombCell = document.querySelector(`.square:nth-child(${bombIndex})`);
+        bombCell.classList.add('clicked-bomb');
+    });
 }
