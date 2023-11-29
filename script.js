@@ -9,7 +9,7 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 
 //DIVISIONE DEL PROBLEMA IN SOTTO PROBLEMI:
 // 1 Devo far generare al computer 16 numeri casuali (max una bomba per cella)
-// 2 Al click dell'utente la cella si colora di rosso OVVERO la cella contenente LA BOMBA
+// 2 Al click dell'utente la cella si colora di rosso OVVERO la cella contenente LA BOMBA(i)
 // 3 Al click di una bomba la partita termina
 // 4 Al termine della partita comunichiamo il punteggio (cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba)
 
@@ -17,8 +17,8 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 //Selezione del contenitore all'interno del mio index
 const gridElement = document.getElementById("grid");
 //Richiamo il mio array vuoto prima espresso nella funzione e gli dico cose nello specifico
-const newArrNum = genArrayRandomNum(1, 100, 16);
-console.log(newArrNum);
+const arrBomb = genArrayRandomNum(1, 100, 16);
+console.log(arrBomb);
 
 //Si showa la griglia al click
 const btnPlay = document.getElementById('playbtn');
@@ -39,7 +39,7 @@ for (let i = 1; i <= 100; i++) {
     newElement.append(i);
 
     //Inserisco il numero all'interno della cella
-    // let numeroCellaIesimo = newArrNum[i];
+    // let numeroCellaIesimo = arrBomb[i];
     // newElement.append(numeroCellaIesimo);
 
 
@@ -47,8 +47,9 @@ for (let i = 1; i <= 100; i++) {
     newElement.addEventListener('click',
         function () {
 
-            if (newArrNum === genArrayRandomNum) {
+            if (arrBomb.includes(i)) {
                 newElement.classList.add('clicked-bomb');
+                alert('HAI PERSOOO :(');
             } else {
                 newElement.classList.add('clicked');
             }
