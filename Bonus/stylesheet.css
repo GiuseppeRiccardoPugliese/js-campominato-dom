@@ -94,6 +94,12 @@ div#grid .square,
     border: 1px solid black;
 }
 
+div#grid .square.clicked-bomb,
+div#grid .square-medium.clicked-bomb,
+div#grid .square-hard.clicked-bomb {
+    background-color: red;
+}
+
 div#grid .square.clicked,
 div#grid .square-medium.clicked,
 div#grid .square-hard.clicked {

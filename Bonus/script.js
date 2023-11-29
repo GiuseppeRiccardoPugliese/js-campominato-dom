@@ -1,13 +1,15 @@
 /*
-Bonus
-Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà:
-- con difficoltà 1 => 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe;
-- con difficoltà 2 => 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe;
-- con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+BONUS:
+Aggiungere una select accanto al bottone di generazione, che fornisca una scelta tra tre diversi livelli di difficoltà: - difficoltà 1 ⇒ 100 caselle, con un numero compreso tra 1 e 100, divise in 10 caselle per 10 righe; - difficoltà 2 ⇒ 81 caselle, con un numero compreso tra 1 e 81, divise in 9 caselle per 9 righe; - difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
+
+Super Bonus:
+Quando si clicca su una bomba e finisce la partita, evitare che si possa cliccare su altre celle;
+Quando si clicca su una bomba e finisce la partita, il software scopre tutte le bombe nascoste.
 */
 
 const btnPlay = document.getElementById('playbtn');
 const gridElement = document.getElementById("grid");
+
 
 
 //Si showa al click
@@ -16,10 +18,14 @@ btnPlay.addEventListener('click',
     function () {
 
         let selectDifficulty = parseInt(document.getElementById('difficulty').value);
+
+        const arrBomb = genArrayRandomNum(1, maxLunghezza(selectDifficulty), 16);
+        console.log(arrBomb);
+
         //Stringa vuota per non far generare la griglia piu' di una volta
         gridElement.innerHTML = "";
 
-
+        let punteggio = 0;
         //Ciclo for per avere le mie celle modalita' easy
         for (let i = 1; i <= maxLunghezza(selectDifficulty); i++) {
 
@@ -30,14 +36,28 @@ btnPlay.addEventListener('click',
             //funzione per colorare la cella all'interno della griglia
             newElement.addEventListener('click',
                 function () {
+
+                    if (arrBomb.includes(i)) {
+                        newElement.classList.add('clicked-bomb');
+                        alert(`HAI PERSOOO  :(  Il tuo punteggio e' :  ${punteggio}`);
+                        console.log("Punteggio dell'utente :", punteggio);
+                    } else {
+                        newElement.classList.add('clicked');
+                        punteggio++;
+                    }
                     console.log("Hai cliccato una cella", i);
-                    newElement.classList.add('clicked');
                 }
             );
         }
 
     }
 );
+
+
+
+/*************************************************
+    FUNCTIONS
+ *************************************************/
 
 //Definisco la funzione per creare il div e creare la cella
 function createMyElement(tagtype, classname, selectDifficulty) {
@@ -72,3 +92,32 @@ function classDifficulty(selectDifficulty, classname) {
     }
     return classname;
 };
+
+//Definisco la funzione che crea un array, richiamando anche quella di due valori randomici (min, max)
+function genArrayRandomNum(minNum, maxNum, lengthArr) {
+
+    //Creo il mio array vuoto da "popolare" e poi da far ritornare il valore dell'array stesso pero' "completo"
+    let arrayToGen = [];
+
+    //Ciclo che popolera' il mio array
+    while (arrayToGen.length < lengthArr) {
+
+        //richiamo la mia funzione per generare un numero random (min, max)
+        let newNumber = genRandomNum(minNum, maxNum);
+
+        //allora SE il mio numero generato NON e' nell'array:
+        if (!arrayToGen.includes(newNumber)) {
+            console.log('Valore max per randomNum: ', maxNum);
+            //ALLORA lo inserisco nell'array
+            arrayToGen.push(newNumber);
+        }
+    }
+
+    return arrayToGen;
+}
+
+//Definisco la funzione per generare un numero random in un range di (min, max) 
+//(in questo caso funzione utile da richiamare per generare il mio array con min max randomici)
+function genRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
