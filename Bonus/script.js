@@ -9,7 +9,8 @@ Quando si clicca su una bomba e finisce la partita, il software scopre tutte le 
 
 const btnPlay = document.getElementById('playbtn');
 const gridElement = document.getElementById("grid");
-
+//variabile per far fermare il gioco quando si perde
+let gameOver = false;
 
 
 //Si showa al click
@@ -36,10 +37,12 @@ btnPlay.addEventListener('click',
             //funzione per colorare la cella all'interno della griglia
             newElement.addEventListener('click',
                 function () {
+                    if (gameOver) return; //Fermo la mia funzione quando ho cliccato su una bomba grazie a return
 
                     if (arrBomb.includes(i)) {
                         newElement.classList.add('clicked-bomb');
                         alert(`HAI PERSOOO  :(  Il tuo punteggio e' :  ${punteggio}`);
+                        gameOver = true; //forzo la mia variabile del gameOver a true quando sono in questa condizione
                         console.log("Punteggio dell'utente :", punteggio);
                     } else {
                         newElement.classList.add('clicked');
