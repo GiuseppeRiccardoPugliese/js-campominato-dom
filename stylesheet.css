@@ -92,6 +92,10 @@ div#grid .square.clicked {
     background-color: aqua;
 }
 
+div#grid .square.clicked-bomb {
+    background-color: red;
+}
+
 /*************************************************
     STILI FOOTER
  *************************************************/
